@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+*.sqlite3
+.jayah/
+.venv/
+*.egg-info/
+build/
+dist/
+engine/target/

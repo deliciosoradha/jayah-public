@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jayah"
+version = "0.1.0"
+description = "Deterministic runtime security for AI agents and MCP servers: SDK, CLI and MCP tools. Local-first, stdlib core."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [{ name = "deliciosoradha" }]
+keywords = ["ai-agents", "mcp", "guardrails", "deterministic", "runtime-security", "local-first"]
+# Zero required runtime dependencies: the core is stdlib-only by design.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+# Optional adapters — the core stays zero-dependency without these.
+langchain = ["langchain-core>=0.3"]
+
+[project.scripts]
+jayah = "tattva_swarm.cli:main"
+jayah-mcp = "tattva_swarm.mcp_server:main"
+tattva = "tattva_swarm.cli:main"
+tattva-mcp = "tattva_swarm.mcp_server:main"
+
+[project.urls]
+Homepage = "https://github.com/deliciosoradha/jayah-public"
+Repository = "https://github.com/deliciosoradha/jayah-public"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
